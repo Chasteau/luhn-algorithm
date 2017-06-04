@@ -12,53 +12,20 @@
 
 // var numbers = [7, 9, 9, 2 ,7, 3, 9, 8, 7, 1];
 
-// 16 digit limit 2^53
-// var num =  1234567890123456;
-
-// // var arr = Array.from(String(num), x => x + x);
-// // console.log(arr);
-// // var arr2 = Array.of(num);
-// // console.log(arr2);
-
-// var arr3 = [1,23,3,54,5,56,7,45];
-
-// console.log(arr3);
-
-// var filtered = arr3.forEach(function(numbers, index, arr) {
-//   var newArr = [];
-//   newArr.push(numbers = numbers * 2);
-//   console.log(newArr);
-//   console.log(numbers);
-// });
-
-// // var filtered = arr3.filter(function(value, index, arr){
-// //   if(value > 9) {
-// //     return index;
-// //   }});
-// console.log(filtered);
-
-// var arr4 = [1,2,3,4,5,6,7].fill(6*6);
-// console.log(arr4);
-// var iterator = arr4.entries()
-// for (let e of iterator) {
-//   console.log(e);}
-
-// var myFish = ['angel', 'clown', 'trumpet', 'sturgeon'];
-// var removed = myFish.splice(0, 2, ...args);
-// console.log(myFish);
-// console.log(removed);
-
-
-
-var numbers = [1, 2, 3, 4,5, 6, 7, 8, 9, 0, 1,2,3,4,5,6];
-var account = "1234567890123456";
+// Test cases. 16 digit limit 2^53
+var numbersInArray = [1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,1];
+var numbersInArray2 = [1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6];
+var longSingleNum = 1234567890123451;
+var longSingleNum2 = 1234567890123456;
+var accountStrNum = "1234567890123451";
+var accountStrNum2 = "1234567890123456";
 
 // checks if input is a number if yes, split to array.
 function toNum(arg){
   var numbers = arg;
 
   if (typeof numbers === 'string') {
-    numbers = String(numbers).split("").map(Number);
+    numbers = numbers.split("").map(Number);
     // numbers.forEach(function stringToNum(strings){
     //   Number(strings);
     // for(i = 0; i < numbers.length; i++) {
@@ -74,15 +41,22 @@ function toNum(arg){
 
       //console.log(numbers);
     // });
-    //console.log(numbers);
+    // console.log(numbers);
     return numbers;
-  } else {
-    return arg;
+  } else if (typeof numbers === 'number') {
+    numbers = String(numbers).split("").map(Number);
+    //console.log(numbers)
   }
+  // console.log(numbers)
+  return numbers;
 }
 
-//toNum(account);
-//toNum(numbers);
+// toNum(accountStrNum);
+// toNum(accountStrNum2);
+// toNum(numbersInArray);
+// toNum(numbersInArray2);
+// toNum(longSingleNum);
+// toNum(longSingleNum2);
 
 
 // returns an array with everysecond digit multiplied by two
@@ -97,7 +71,7 @@ function everySecondDigit(arr) {
   return doubleEverOther;
 }
 
-//everySecondDigit(numbers);
+//everySecondDigit(numbersInArray);
 
 // returns a sum of digits after check
 function sumDigits(arr) {
@@ -110,14 +84,14 @@ function sumDigits(arr) {
       sumAfterDouble[i] = sumAfterDouble[i] - 9;
     }
   }
-  console.log(sumAfterDouble)
+  // console.log(sumAfterDouble)
   return sumAfterDouble;
 }
 
- //everySecondDigit(account);
-//everySecondDigit(numbers);
-// sumDigits(everySecondDigit(account));
-// sumDigits(everySecondDigit(numbers));
+ //everySecondDigit(accountStrNum);
+//everySecondDigit(numbersInArray);
+// sumDigits(everySecondDigit(accountStrNum));
+// sumDigits(everySecondDigit(numbersInArray));
 
 function sum(arr) {
   /* IMPLEMENT ME */
@@ -127,26 +101,26 @@ function sum(arr) {
     total += arr[counter];
     counter++;
   }
-  console.log(total);
+  // console.log(total);
   return total;
 }
 
-sum(sumDigits(everySecondDigit(account)));
-sum(sumDigits(everySecondDigit(numbers)));
+// sum(sumDigits(everySecondDigit(accountStrNum)));
+// sum(sumDigits(everySecondDigit(numbersInArray)));
 
 
 
 
 function check(num) {
   var numbers = toNum(num);
-  console.log(numbers);
+  // console.log(numbers);
   var doubledNums = everySecondDigit(numbers);
-  console.log(doubledNums);
+  // console.log(doubledNums);
   var SumNums = sumDigits(doubledNums);
-  console.log(SumNums);
+  // console.log(SumNums);
   // set checkDigit to be sum of SumNum array
   var checkDigit = sum(SumNums);
-  console.log(checkDigit);
+  // console.log(checkDigit);
 
 // If the total modulo 10 is equal to 0
 // (if the total ends in zero) then the number
@@ -154,8 +128,12 @@ function check(num) {
 return (checkDigit % 10 === 0);;
  }
 
-console.log(check(numbers));
-console.log(check(account));
+console.log(check(longSingleNum));
+console.log(check(longSingleNum2));
+console.log(check(numbersInArray));
+console.log(check(numbersInArray2));
+console.log(check(accountStrNum));
+console.log(check(accountStrNum2));
 
 
 
