@@ -53,12 +53,11 @@
 var numbers = [1, 2, 3, 4,5, 6, 7, 8, 9, 0, 1,2,3,4,5,6];
 var account = "1234567890123456";
 
-// checks if input is a number
-// if yes, split to array.
+// checks if input is a number if yes, split to array.
 function toNum(arg){
   var numbers = arg;
 
-  if (typeof arg === 'string') {
+  if (typeof numbers === 'string') {
     numbers = String(numbers).split("").map(Number);
     // numbers.forEach(function stringToNum(strings){
     //   Number(strings);
@@ -115,71 +114,78 @@ function sumDigits(arr) {
   return sumAfterDouble;
 }
 
-// everySecondDigit(account);
-// everySecondDigit(numbers);
-sumDigits(everySecondDigit(account));
-sumDigits(everySecondDigit(numbers));
+ //everySecondDigit(account);
+//everySecondDigit(numbers);
+// sumDigits(everySecondDigit(account));
+// sumDigits(everySecondDigit(numbers));
+
+function sum(arr) {
+  /* IMPLEMENT ME */
+  var total = 0;
+  var counter = 0;
+  while (counter < arr.length) {
+    total += arr[counter];
+    counter++;
+  }
+  console.log(total);
+  return total;
+}
+
+sum(sumDigits(everySecondDigit(account)));
+sum(sumDigits(everySecondDigit(numbers)));
 
 
 
-// function check(num) {
-//   var numbers = String(num).split("");
-//   console.log(numbers);
 
-//   // From the rightmost(From
-//   var checkDigit = "x";
+function check(num) {
+  var numbers = toNum(num);
+  console.log(numbers);
+  var doubledNums = everySecondDigit(numbers);
+  console.log(doubledNums);
+  var SumNums = sumDigits(doubledNums);
+  console.log(SumNums);
 
-//   //console.log(checkDigit);
-//   //aa digit, which is the check digit, and moving left,
-//   //-- reading backwards/decrementing
-//   // double the value of every second digit. If the result of this doubling
-//   doubleEverOther = [];
-//   for (var second = numbers.length - 1; second >= 0; second-=2) {
-//     //console.log(numbers[second]);
-//     var everySecondDigit = numbers[second];
-//     var product = everySecondDigit * 2;
-//     doubleEverOther.push(product);
-//     // /console.log(product);
-//   }
-//   console.log(`doubleEverOther`, doubleEverOther);
+  // set checkDigit
+  var checkDigit = "x";
+  console.log(checkDigit);
 
-//   // Take the sum of all the digits.
-// //   // var sum = 0;
-// //   // numbers.forEach(function(number){
-// //   // sum += number;
-// //   // return sum;
-// //   // })
-// //   // operation is greater than 9 (e.g., 8 × 2 = 16), then add the digits of
-// // if( product > 9 ) {
-// //   everySecondDigit + 2;
-// // }
-
-//   sumDigits = [];
-//   for (var i = 0; i < doubleEverOther.length; i++) {
-//     if(doubleEverOther[i] > 9 ) {
-//      //var minus 9
-//       sumDigits.push(doubleEverOther[i] - 9);
-//     }
-//     console.log(`sumDigits`, sumDigits);
-//   }
-
-
-// // the product (e.g., 16: 1 + 6 = 7, 18: 1 + 8 = 9) else/ or
-// // alternatively subtract 9 from the product (e.g., 16: 16 - 9 = 7, 18: 18 - 9 = 9).
-// else if (product < 9){
-// (everySecondDigit * 2) - 9;
-// }}
-
-
+  // Take the sum of all the digits.
+//   // var sum = 0;
+//   // numbers.forEach(function(number){
+//   // sum += number;
+//   // return sum;
+//   // })
+//   // operation is greater than 9 (e.g., 8 × 2 = 16), then add the digits of
+// if( product > 9 ) {
+//   everySecondDigit + 2;
 // }
 
-// If the total modulo 10 is equal to 0
-// (if the total ends in zero) then the number
-// is valid according to the Luhn formula; else it is not valid.
-// return (sum % 10 === 0);;
-//  }
+  sumDigits = [];
+  for (var i = 0; i < doubleEverOther.length; i++) {
+    if(doubleEverOther[i] > 9 ) {
+     //var minus 9
+      sumDigits.push(doubleEverOther[i] - 9);
+    }
+    console.log(`sumDigits`, sumDigits);
+  }
 
-// check(num);
+
+// the product (e.g., 16: 1 + 6 = 7, 18: 1 + 8 = 9) else/ or
+// alternatively subtract 9 from the product (e.g., 16: 16 - 9 = 7, 18: 18 - 9 = 9).
+else if (product < 9){
+(everySecondDigit * 2) - 9;
+}}
+
+
+}
+
+If the total modulo 10 is equal to 0
+(if the total ends in zero) then the number
+is valid according to the Luhn formula; else it is not valid.
+return (sum % 10 === 0);;
+ }
+
+check(num);
 
 
 
