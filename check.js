@@ -144,48 +144,18 @@ function check(num) {
   console.log(doubledNums);
   var SumNums = sumDigits(doubledNums);
   console.log(SumNums);
-
-  // set checkDigit
-  var checkDigit = "x";
+  // set checkDigit to be sum of SumNum array
+  var checkDigit = sum(SumNums);
   console.log(checkDigit);
 
-  // Take the sum of all the digits.
-//   // var sum = 0;
-//   // numbers.forEach(function(number){
-//   // sum += number;
-//   // return sum;
-//   // })
-//   // operation is greater than 9 (e.g., 8 × 2 = 16), then add the digits of
-// if( product > 9 ) {
-//   everySecondDigit + 2;
-// }
-
-  sumDigits = [];
-  for (var i = 0; i < doubleEverOther.length; i++) {
-    if(doubleEverOther[i] > 9 ) {
-     //var minus 9
-      sumDigits.push(doubleEverOther[i] - 9);
-    }
-    console.log(`sumDigits`, sumDigits);
-  }
-
-
-// the product (e.g., 16: 1 + 6 = 7, 18: 1 + 8 = 9) else/ or
-// alternatively subtract 9 from the product (e.g., 16: 16 - 9 = 7, 18: 18 - 9 = 9).
-else if (product < 9){
-(everySecondDigit * 2) - 9;
-}}
-
-
-}
-
-If the total modulo 10 is equal to 0
-(if the total ends in zero) then the number
-is valid according to the Luhn formula; else it is not valid.
-return (sum % 10 === 0);;
+// If the total modulo 10 is equal to 0
+// (if the total ends in zero) then the number
+// is valid according to the Luhn formula; else it is not valid.
+return (checkDigit % 10 === 0);;
  }
 
-check(num);
+console.log(check(numbers));
+console.log(check(account));
 
 
 
