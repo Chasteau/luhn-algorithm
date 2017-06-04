@@ -48,13 +48,86 @@
 // console.log(myFish);
 // console.log(removed);
 
+
+
+var numbers = [1, 2, 3, 4,5, 6, 7, 8, 9, 0, 1,2,3,4,5,6];
+var account = "1234567890123456";
+
+// checks if input is a number
+// if yes, split to array.
+function toNum(arg){
+  var numbers = arg;
+
+  if (typeof arg === 'string') {
+    numbers = String(numbers).split("").map(Number);
+    // numbers.forEach(function stringToNum(strings){
+    //   Number(strings);
+    // for(i = 0; i < numbers.length; i++) {
+    //      numbers = Number(numbers[i]);
+    //      console.log(numbers);
+    // }
+//     numbers.forEach(function(value) {
+//     if (/^(\-|\+)?([0-9]+|Infinity)$/.test(value))
+//     return Number(value);
+//   return NaN;
+// });
+    //numbers = numbers.map(Number);
+
+      //console.log(numbers);
+    // });
+    //console.log(numbers);
+    return numbers;
+  } else {
+    return arg;
+  }
+}
+
+//toNum(account);
+//toNum(numbers);
+
+
+// returns an array with everysecond digit multiplied by two
+function everySecondDigit(arr) {
+  var doubleEverOther = toNum(arr);
+
+  // double the value of every second digit. If the result of this doubling
+  for (var i = doubleEverOther.length - 1; i>= 0; i = i - 2) {
+    doubleEverOther[i] = doubleEverOther[i] * 2;
+  }
+  //console.log(doubleEverOther);
+  return doubleEverOther;
+}
+
+//everySecondDigit(numbers);
+
+// returns a sum of digits after check
+function sumDigits(arr) {
+  var sumAfterDouble = arr;
+  // loop through the doubled array
+  for (var i = sumAfterDouble.length - 1; i>= 0; i = i - 2) {
+    // check if everySecondDigit is > 9
+    // if yes subtract 9
+     if(sumAfterDouble[i] > 9 ) {
+      sumAfterDouble[i] = sumAfterDouble[i] - 9;
+    }
+  }
+  console.log(sumAfterDouble)
+  return sumAfterDouble;
+}
+
+// everySecondDigit(account);
+// everySecondDigit(numbers);
+sumDigits(everySecondDigit(account));
+sumDigits(everySecondDigit(numbers));
+
+
+
 // function check(num) {
-  // array of strings
 //   var numbers = String(num).split("");
 //   console.log(numbers);
 
 //   // From the rightmost(From
-//   var checkDigit = numbers[numbers.length - 1]
+//   var checkDigit = "x";
 
 //   //console.log(checkDigit);
 //   //aa digit, which is the check digit, and moving left,
@@ -107,46 +180,6 @@
 //  }
 
 // check(num);
-
-var numbers = [1, 2, 3, 4, 6, 7, 8, 9, 10, 11];
-
-// returns an array with everysecond digit multiplied by two
-function everySecondDigit(arr) {
-
-  var doubleEverOther = arr;
-  //console.log(doubleEverOther);
-  // var checkDigit = numbers[numbers.length - 1]
-  //console.log(checkDigit);
-
-  //aa digit, which is the check digit, and moving left,
-  //-- reading backwards/decrementing
-  // double the value of every second digit. If the result of this doubling
-  for (var i = doubleEverOther.length - 1; i>= 0; i = i - 2) {
-    //console.log(doubleEverOther[i]);
-    doubleEverOther[i] = doubleEverOther[i] * 2;
-  }
-  //console.log(doubleEverOther);
-  return doubleEverOther;
-}
-
-//everySecondDigit(numbers);
-
-// returns a sum of digits after check
-function sumDigits(arr) {
-  var sumAfterDouble = arr;
-  // loop through the doubled array
-  for (var i = sumAfterDouble.length - 1; i>= 0; i = i - 2) {
-    // check if everySecondDigit is > 9
-    // if yes subtract 9
-     if(sumAfterDouble[i] > 9 ) {
-      sumAfterDouble[i] = sumAfterDouble[i] - 9;
-    }
-  }
-  console.log(sumAfterDouble)
-  return sumAfterDouble;
-}
-
-sumDigits(everySecondDigit(numbers));
 
 
 
