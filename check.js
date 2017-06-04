@@ -19,6 +19,8 @@ var longSingleNum = 1234567890123451;
 var longSingleNum2 = 1234567890123456;
 var accountStrNum = "1234567890123451";
 var accountStrNum2 = "1234567890123456";
+var spacedaccountStrNum = "12345 678901 23451";
+var spacedaccountStrNum2 = "12345 678901 23456";
 
 // checks if input is a number if yes, split to array.
 function toNum(arg){
@@ -47,7 +49,7 @@ function toNum(arg){
     numbers = String(numbers).split("").map(Number);
     //console.log(numbers)
   }
-  // console.log(numbers)
+   console.log(numbers)
   return numbers;
 }
 
@@ -57,6 +59,9 @@ function toNum(arg){
 // toNum(numbersInArray2);
 // toNum(longSingleNum);
 // toNum(longSingleNum2);
+
+toNum(spacedaccountStrNum);
+toNum(spacedaccountStrNum2);
 
 
 // returns an array with everysecond digit multiplied by two
@@ -94,7 +99,6 @@ function sumDigits(arr) {
 // sumDigits(everySecondDigit(numbersInArray));
 
 function sum(arr) {
-  /* IMPLEMENT ME */
   var total = 0;
   var counter = 0;
   while (counter < arr.length) {
@@ -107,8 +111,6 @@ function sum(arr) {
 
 // sum(sumDigits(everySecondDigit(accountStrNum)));
 // sum(sumDigits(everySecondDigit(numbersInArray)));
-
-
 
 
 function check(num) {
@@ -125,7 +127,7 @@ function check(num) {
 // If the total modulo 10 is equal to 0
 // (if the total ends in zero) then the number
 // is valid according to the Luhn formula; else it is not valid.
-return (checkDigit % 10 === 0);;
+return (checkDigit % 10 === 0);
  }
 
 console.log(check(longSingleNum));
